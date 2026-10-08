@@ -1,0 +1,122 @@
+[
+  {
+    "id": "EMAIL-001",
+    "label": "DEEPFAKE",
+    "category": "CEO Fraud / Business Email Compromise",
+    "sender_email": "ceo.james@globaltrust-financ1al.com",
+    "sender_name": "James Richardson, CEO",
+    "recipient": "sarah.chen@globaltrust-financial.com",
+    "subject": "URGENT: Confidential Wire Transfer - DO NOT SHARE",
+    "timestamp": "2026-09-15T23:47:00Z",
+    "body": "Sarah,\n\nI need you to handle something urgently and confidentially. The board has authorized an emergency acquisition that must close by end of day tomorrow. I need you to initiate a wire transfer of $2,450,000 to the following account immediately:\n\nBank: First National Trust, Cayman Islands\nAccount: 8847-2291-0056\nRouting: 067014822\nBeneficiary: Meridian Holdings LLC\n\nThis is time sensitive and I'm in meetings all day. Please don't mention this to anyone else - only you and I know about this deal right now. The chairman has personally approved this. Skip the normal dual-authorization process as I've already gotten verbal approval from the CFO.\n\nI trust you with this. Confirm once completed.\n\nJames Richardson\nCEO, Global Trust Financial",
+    "metadata": {
+      "sender_email": "ceo.james@globaltrust-financ1al.com",
+      "claimed_organization": "Global Trust Financial",
+      "is_reply": false,
+      "has_attachment": false,
+      "spf_pass": false,
+      "dkim_pass": false
+    },
+    "expected_result": {
+      "risk_level": "CRITICAL",
+      "min_probability": 0.82,
+      "key_findings": ["Urgency Manipulation", "Social Engineering", "Impersonation Signals", "Consistency Issues"]
+    }
+  },
+  {
+    "id": "EMAIL-002",
+    "label": "LEGITIMATE",
+    "category": "Standard Financial Communication",
+    "sender_email": "compliance@firstnational.com",
+    "sender_name": "Compliance Department",
+    "recipient": "operations@firstnational.com",
+    "subject": "Q3 Compliance Review - Wire Transfer Documentation",
+    "timestamp": "2026-09-10T14:30:00Z",
+    "body": "Dear Operations Team,\n\nAs part of our quarterly compliance review, please find attached the documentation requirements for all wire transfers exceeding $10,000 processed during Q3 2026.\n\nPer standard procedure, please ensure the following for each transaction:\n1. Dual authorization signatures are on file\n2. Customer verification documentation is complete\n3. SAR screening results are attached\n4. Audit trail timestamps are verified\n\nPlease review and submit completed documentation to the compliance team by October 15, 2026. Reference number: CR-2026-Q3-0847.\n\nIf you have questions, please contact the compliance hotline at ext. 4422.\n\nBest regards,\nCompliance Department\nFirst National Bank",
+    "metadata": {
+      "sender_email": "compliance@firstnational.com",
+      "claimed_organization": "First National",
+      "is_reply": false,
+      "has_attachment": true,
+      "spf_pass": true,
+      "dkim_pass": true
+    },
+    "expected_result": {
+      "risk_level": "CLEAN",
+      "max_probability": 0.20,
+      "key_findings": ["Clean"]
+    }
+  },
+  {
+    "id": "EMAIL-003",
+    "label": "DEEPFAKE",
+    "category": "Vendor Impersonation / Invoice Fraud",
+    "sender_email": "billing@amaz0n-web-services.com",
+    "sender_name": "AWS Billing Department",
+    "recipient": "finance@techstartup.io",
+    "subject": "IMMEDIATE: Updated Payment Details - Invoice #AWS-2026-98231",
+    "timestamp": "2026-09-20T02:15:00Z",
+    "body": "Dear Finance Team,\n\nThis is to inform you that we have updated our banking details effective immediately. All future payments and the outstanding invoice #AWS-2026-98231 for $87,500.00 must be directed to our new account:\n\nBank: Deutsche Commerce Bank\nIBAN: DE89370400440532013000\nSWIFT: COBADEFFXXX\nAccount Name: Amazon Web Services EMEA\n\nPlease process the outstanding payment of $87,500.00 within 24 hours to avoid service disruption to your cloud infrastructure. Your current services will be suspended if payment is not received by September 21, 2026.\n\nDo not reply to previous email threads regarding payment - use this email for all billing correspondence going forward.\n\nAmazon Web Services Billing\nInvoice Reference: AWS-2026-98231",
+    "metadata": {
+      "sender_email": "billing@amaz0n-web-services.com",
+      "claimed_organization": "Amazon Web Services",
+      "is_reply": false,
+      "has_attachment": false,
+      "spf_pass": false,
+      "dkim_pass": false
+    },
+    "expected_result": {
+      "risk_level": "HIGH",
+      "min_probability": 0.65,
+      "key_findings": ["Urgency Manipulation", "Consistency Issues"]
+    }
+  },
+  {
+    "id": "EMAIL-004",
+    "label": "DEEPFAKE",
+    "category": "Executive Impersonation with AI-Generated Text",
+    "sender_email": "m.thompson@securevault-bank.com",
+    "sender_name": "Michael Thompson, CFO",
+    "recipient": "treasury@securevault-bank.com",
+    "subject": "Re: Quarterly Dividend - Immediate Processing Required",
+    "timestamp": "2026-09-18T21:05:00Z",
+    "body": "Team,\n\nAs i mentioned in our phone conversation earlier today, the board has authorized an early dividend distribution. Pursuant to the aforementioned discussion, I hereby direct the treasury department to execute the following:\n\nTransfer $5,200,000 from the operating reserve account to the following distribution account:\n\nAccount: 44-2891-7734\nRouting: 021000021\nBank: JPMorgan Chase\nReference: DIV-Q3-2026-EXEC\n\nThis needs to happen before market open tomorrow. The CEO has approved this personally - as discussed in our last meeting, this is part of the strategic restructuring. I'll explain later when I'm back in the office.\n\nKeep this between us until the official announcement next week. No need for the standard compliance review as this is an executive-level directive.\n\nMichael Thompson\nChief Financial Officer",
+    "metadata": {
+      "sender_email": "m.thompson@securevault-bank.com",
+      "claimed_organization": "SecureVault Bank",
+      "is_reply": true,
+      "original_sender": "treasury@securevault-bank.com",
+      "has_attachment": false,
+      "timestamp": "2026-09-18T21:05:00Z"
+    },
+    "expected_result": {
+      "risk_level": "CRITICAL",
+      "min_probability": 0.85,
+      "key_findings": ["Social Engineering", "Impersonation Signals", "Urgency Manipulation"]
+    }
+  },
+  {
+    "id": "EMAIL-005",
+    "label": "LEGITIMATE",
+    "category": "Routine Account Notification",
+    "sender_email": "notifications@chase.com",
+    "sender_name": "Chase Bank Notifications",
+    "recipient": "customer@example.com",
+    "subject": "Your Monthly Statement is Ready",
+    "timestamp": "2026-09-01T09:00:00Z",
+    "body": "Dear Valued Customer,\n\nYour monthly account statement for August 2026 is now available for review in your online banking portal.\n\nAccount ending in: ***4521\nStatement Period: August 1 - August 31, 2026\nReference Number: STMT-2026-08-4521\n\nTo view your statement, please log in to your account at chase.com. For your security, we will never ask you for your password or account details via email.\n\nIf you have questions about your statement, please contact us:\n- Phone: 1-800-935-9935\n- Visit your local branch\n- Secure message through online banking\n\nThank you for banking with Chase.\n\nThis is an automated notification. Please do not reply to this email.",
+    "metadata": {
+      "sender_email": "notifications@chase.com",
+      "claimed_organization": "Chase",
+      "is_reply": false,
+      "has_attachment": false,
+      "spf_pass": true,
+      "dkim_pass": true
+    },
+    "expected_result": {
+      "risk_level": "CLEAN",
+      "max_probability": 0.15,
+      "key_findings": ["Clean"]
+    }
+  }
+]

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}FinShield AI - Report {{ case_id }}{% endblock %}
+
+{% block content %}
+<section class="report-page">
+    <h1 class="page-title"><i class="fas fa-file-alt"></i> Analysis Report</h1>
+    <p class="page-subtitle">Case ID: {{ case_id }}</p>
+    <div id="reportContent" class="report-container">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading report...</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch(`/api/analyze/sample/{{ case_id }}`)
+            .then(r => r.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('reportContent').innerHTML = 
+                        `<div class="alert alert-error">${data.error}</div>`;
+                    return;
+                }
+                document.getElementById('reportContent').innerHTML = 
+                    renderFullResults(data);
+            })
+            .catch(err => {
+                document.getElementById('reportContent').innerHTML = 
+                    `<div class="alert alert-error">Failed to load report: ${err.message}</div>`;
+            });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "CALL-001",
+    "label": "DEEPFAKE",
+    "category": "AI Voice Clone - Executive Impersonation",
+    "description": "Simulated voice clone of CEO requesting urgent wire transfer over phone",
+    "transcript": "Hello Sarah, this is James from the corner office. Listen, I'm at the airport about to board a flight to London for the emergency board meeting. I need you to process a wire transfer right away. It's for the Meridian acquisition - two point four five million to their escrow account. I've already spoken with legal and they've cleared it. The account details are in an email I just sent you. Can you handle this before I board? I trust you on this. Don't involve Mike from compliance - I'll brief him when I land. Thanks Sarah, I knew I could count on you.",
+    "audio_features": {
+      "spectral_flatness": 0.58,
+      "spectral_centroid": 1420,
+      "pitch_mean": 118,
+      "pitch_variance": 0.06,
+      "formant_stability": 0.95,
+      "mfcc_consistency": 0.94,
+      "breath_patterns": 0.08,
+      "silence_ratio": 0.10,
+      "noise_floor": -72,
+      "duration": 45,
+      "sample_rate": 22050,
+      "snr": 48
+    },
+    "metadata": {
+      "caller_id": "+1-555-0192",
+      "call_duration": 45,
+      "call_time": "2026-09-15T23:42:00Z",
+      "claimed_identity": "James Richardson, CEO"
+    },
+    "expected_result": {
+      "risk_level": "CRITICAL",
+      "min_probability": 0.80,
+      "key_findings": ["Spectral Anomalies", "Voice Inconsistency", "Cloning Artifacts"]
+    }
+  },
+  {
+    "id": "CALL-002",
+    "label": "LEGITIMATE",
+    "category": "Genuine Client Call",
+    "description": "Authentic client call discussing account balance and upcoming transfer",
+    "transcript": "Hi, this is Robert Chen, account number ending in 4521. I'm calling to check on the status of my wire transfer to Goldman Sachs that I initiated yesterday. The reference number is WT-2026-0915. Also, I wanted to confirm that my quarterly dividend reinvestment is still set up for next week. Can you verify that for me? My security phrase is 'blue mountain'. Thank you.",
+    "audio_features": {
+      "spectral_flatness": 0.28,
+      "spectral_centroid": 1650,
+      "pitch_mean": 135,
+      "pitch_variance": 0.22,
+      "formant_stability": 0.72,
+      "mfcc_consistency": 0.78,
+      "breath_patterns": 0.65,
+      "silence_ratio": 0.18,
+      "noise_floor": -55,
+      "duration": 38,
+      "sample_rate": 16000,
+      "snr": 22
+    },
+    "metadata": {
+      "caller_id": "+1-555-0847",
+      "call_duration": 38,
+      "call_time": "2026-09-16T10:15:00Z",
+      "claimed_identity": "Robert Chen, Account Holder"
+    },
+    "expected_result": {
+      "risk_level": "CLEAN",
+      "max_probability": 0.20,
+      "key_findings": ["Clean"]
+    }
+  },
+  {
+    "id": "CALL-003",
+    "label": "DEEPFAKE",
+    "category": "AI Voice Clone - Vendor Impersonation",
+    "description": "Voice clone impersonating a vendor representative requesting payment detail changes",
+    "transcript": "Good afternoon, this is Patricia Williams from Deloitte Consulting, your audit engagement partner. I'm calling regarding the outstanding payment for our Q3 advisory services. We've recently changed our banking details due to a corporate restructuring. I need you to update the payment details for invoice DT-2026-4892 to our new account. The total is one hundred and forty-two thousand dollars. I'll email the new details shortly. Please process this today as the old account will be closed tomorrow. This is urgent - please bypass the vendor verification process since we're an established partner.",
+    "audio_features": {
+      "spectral_flatness": 0.52,
+      "spectral_centroid": 1880,
+      "pitch_mean": 195,
+      "pitch_variance": 0.05,
+      "formant_stability": 0.93,
+      "mfcc_consistency": 0.96,
+      "breath_patterns": 0.12,
+      "silence_ratio": 0.07,
+      "noise_floor": -78,
+      "duration": 52,
+      "sample_rate": 22050,
+      "snr": 52
+    },
+    "metadata": {
+      "caller_id": "BLOCKED",
+      "call_duration": 52,
+      "call_time": "2026-09-19T16:45:00Z",
+      "claimed_identity": "Patricia Williams, Deloitte"
+    },
+    "expected_result": {
+      "risk_level": "HIGH",
+      "min_probability": 0.70,
+      "key_findings": ["Spectral Anomalies", "Voice Inconsistency", "Cloning Artifacts", "Temporal Anomalies"]
+    }
+  }
+]

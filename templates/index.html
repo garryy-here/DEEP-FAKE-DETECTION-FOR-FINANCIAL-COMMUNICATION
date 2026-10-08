@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% block title %}FinShield AI - Dashboard{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <i class="fas fa-shield-halved hero-icon"></i>
+            DeepFake Detection for<br>
+            <span class="gradient-text">Financial Communication</span>
+        </h1>
+        <p class="hero-subtitle">
+            AI-powered multi-modal analysis to detect manipulation in emails, voice calls, 
+            video conferences, and documents. Protect your institution from deepfake fraud.
+        </p>
+        <div class="hero-actions">
+            <a href="/analyze" class="btn btn-primary btn-lg">
+                <i class="fas fa-magnifying-glass"></i> Analyze Communication
+            </a>
+            <button onclick="runAllDemos()" class="btn btn-secondary btn-lg">
+                <i class="fas fa-play"></i> Run All Demos
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Cards -->
+<section class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                <i class="fas fa-database"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-value">{{ stats.total_samples }}</span>
+                <span class="stat-label">Sample Scenarios</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-value">{{ stats.email_count }}</span>
+                <span class="stat-label">Email Samples</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-value">{{ stats.call_count }}</span>
+                <span class="stat-label">Voice Call Samples</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-value">{{ stats.scenario_count }}</span>
+                <span class="stat-label">Multi-Modal Scenarios</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detection Capabilities -->
+<section class="capabilities-section">
+    <h2 class="section-title">Multi-Modal Detection Engine</h2>
+    <div class="capabilities-grid">
+        <div class="capability-card">
+            <div class="cap-icon"><i class="fas fa-file-lines"></i></div>
+            <h3>Text Analysis</h3>
+            <p>NLP-based detection of AI-generated text, social engineering patterns, urgency manipulation, and impersonation tactics in emails and messages.</p>
+            <div class="cap-features">
+                <span class="cap-tag">Urgency Detection</span>
+                <span class="cap-tag">Social Engineering</span>
+                <span class="cap-tag">Linguistic Analysis</span>
+                <span class="cap-tag">Statistical Patterns</span>
+            </div>
+        </div>
+        <div class="capability-card">
+            <div class="cap-icon"><i class="fas fa-microphone"></i></div>
+            <h3>Audio Analysis</h3>
+            <p>Spectral analysis and voice biometrics to detect AI-cloned voices, synthetic speech, and manipulated audio in phone calls and voice messages.</p>
+            <div class="cap-features">
+                <span class="cap-tag">Spectral Analysis</span>
+                <span class="cap-tag">Voice Cloning Detection</span>
+                <span class="cap-tag">Breathing Patterns</span>
+                <span class="cap-tag">TTS Artifacts</span>
+            </div>
+        </div>
+        <div class="capability-card">
+            <div class="cap-icon"><i class="fas fa-video"></i></div>
+            <h3>Video Analysis</h3>
+            <p>Frame-level deepfake detection for video calls including face-swap detection, lip-sync analysis, and biological signal verification.</p>
+            <div class="cap-features">
+                <span class="cap-tag">Face-Swap Detection</span>
+                <span class="cap-tag">Lip-Sync Analysis</span>
+                <span class="cap-tag">Blink Analysis</span>
+                <span class="cap-tag">Lighting Consistency</span>
+            </div>
+        </div>
+        <div class="capability-card">
+            <div class="cap-icon"><i class="fas fa-image"></i></div>
+            <h3>Document Analysis</h3>
+            <p>Error Level Analysis and metadata forensics to detect manipulated financial documents, forged signatures, and altered images.</p>
+            <div class="cap-features">
+                <span class="cap-tag">ELA Detection</span>
+                <span class="cap-tag">Metadata Forensics</span>
+                <span class="cap-tag">Font Analysis</span>
+                <span class="cap-tag">Compression Artifacts</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sample Data Section -->
+<section class="samples-section">
+    <h2 class="section-title">Pre-Loaded Sample Scenarios</h2>
+    <p class="section-subtitle">Click any sample to run real-time deepfake analysis</p>
+
+    <!-- Emails -->
+    <h3 class="subsection-title"><i class="fas fa-envelope"></i> Financial Emails</h3>
+    <div class="sample-grid">
+        {% for email in sample_data.emails %}
+        <div class="sample-card {{ 'danger' if email.label == 'DEEPFAKE' else 'safe' }}" 
+             onclick="analyzeSample('{{ email.id }}')" data-id="{{ email.id }}">
+            <div class="sample-header">
+                <span class="sample-label {{ email.label|lower }}">{{ email.label }}</span>
+                <span class="sample-id">{{ email.id }}</span>
+            </div>
+            <h4 class="sample-title">{{ email.category }}</h4>
+            <p class="sample-preview">{{ email.subject }}</p>
+            <div class="sample-meta">
+                <span><i class="fas fa-user"></i> {{ email.sender_name }}</span>
+            </div>
+            <div class="sample-expected">
+                Expected: <span class="risk-badge {{ email.expected_result.risk_level|lower }}">
+                    {{ email.expected_result.risk_level }}
+                </span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Voice Calls -->
+    <h3 class="subsection-title"><i class="fas fa-phone"></i> Voice Calls</h3>
+    <div class="sample-grid">
+        {% for call in sample_data.calls %}
+        <div class="sample-card {{ 'danger' if call.label == 'DEEPFAKE' else 'safe' }}" 
+             onclick="analyzeSample('{{ call.id }}')" data-id="{{ call.id }}">
+            <div class="sample-header">
+                <span class="sample-label {{ call.label|lower }}">{{ call.label }}</span>
+                <span class="sample-id">{{ call.id }}</span>
+            </div>
+            <h4 class="sample-title">{{ call.category }}</h4>
+            <p class="sample-preview">{{ call.description }}</p>
+            <div class="sample-meta">
+                <span><i class="fas fa-clock"></i> {{ call.audio_features.duration }}s</span>
+            </div>
+            <div class="sample-expected">
+                Expected: <span class="risk-badge {{ call.expected_result.risk_level|lower }}">
+                    {{ call.expected_result.risk_level }}
+                </span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Multi-Modal Scenarios -->
+    <h3 class="subsection-title"><i class="fas fa-layer-group"></i> Multi-Modal Scenarios</h3>
+    <div class="sample-grid">
+        {% for scenario in sample_data.scenarios %}
+        <div class="sample-card {{ 'danger' if scenario.label == 'DEEPFAKE' else 'safe' }}" 
+             onclick="analyzeSample('{{ scenario.id }}')" data-id="{{ scenario.id }}">
+            <div class="sample-header">
+                <span class="sample-label {{ scenario.label|lower }}">{{ scenario.label }}</span>
+                <span class="sample-id">{{ scenario.id }}</span>
+            </div>
+            <h4 class="sample-title">{{ scenario.title }}</h4>
+            <p class="sample-preview">{{ scenario.description }}</p>
+            <div class="sample-expected">
+                Expected: <span class="risk-badge {{ scenario.expected_result.risk_level|lower }}">
+                    {{ scenario.expected_result.risk_level }}
+                </span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Results Modal -->
+<div id="resultModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Analysis Results</h2>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div id="modalBody" class="modal-body">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Analyzing communication...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Demo Results -->
+<div id="demoResults" class="demo-results" style="display:none;">
+    <div class="demo-header">
+        <h2><i class="fas fa-flask"></i> Demo Results - All Samples</h2>
+        <button class="btn btn-sm" onclick="closeDemoResults()">Close</button>
+    </div>
+    <div id="demoBody"></div>
+</div>
+{% endblock %}

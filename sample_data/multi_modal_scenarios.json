@@ -1,0 +1,137 @@
+[
+  {
+    "id": "MULTI-001",
+    "label": "DEEPFAKE",
+    "title": "CEO Deepfake Video Call with Fraudulent Wire Instructions",
+    "category": "Multi-Modal Attack - Video + Email + Voice",
+    "description": "Coordinated deepfake attack using AI-generated video call of CEO, followed by spoofed email with wire transfer instructions, and a follow-up voice clone call to confirm.",
+    "text": "Following our video call just now, please proceed with the wire transfer as discussed. The acquisition target has agreed to our terms but requires payment within 4 hours. Wire $3,800,000 to:\n\nBank: HSBC Hong Kong\nAccount: 400-822991-838\nSWIFT: HSBCHKHHHKH\nBeneficiary: Pacific Meridian Ventures Ltd\n\nAs the CEO explained in the call, this must bypass standard approval chains due to the confidential nature of the deal. Only you, me, and the CEO know about this. Don't involve compliance until after the transfer. I'll explain everything in tomorrow's executive meeting.\n\nConfirm once the wire is sent.",
+    "audio_features": {
+      "spectral_flatness": 0.61,
+      "pitch_variance": 0.04,
+      "formant_stability": 0.96,
+      "breath_patterns": 0.06,
+      "noise_floor": -82,
+      "snr": 55,
+      "sample_rate": 22050,
+      "mfcc_consistency": 0.97
+    },
+    "video_features": {
+      "facial_landmark_stability": 0.58,
+      "face_boundary_sharpness": 0.97,
+      "skin_texture_consistency": 0.55,
+      "lip_sync_score": 0.62,
+      "lip_movement_naturalness": 0.58,
+      "frame_consistency": 0.72,
+      "motion_smoothness": 0.68,
+      "temporal_flicker": 0.22,
+      "blink_rate": 3,
+      "blink_regularity": 0.98,
+      "micro_expression_presence": 0.08,
+      "pupil_dilation_variation": 0.02,
+      "lighting_direction_consistency": 0.62,
+      "shadow_consistency": 0.58,
+      "reflection_consistency": 0.52
+    },
+    "image_features": {
+      "ela_variance": 0.55,
+      "ela_max_diff": 85,
+      "compression_consistency": 0.52,
+      "font_count": 4,
+      "font_size_variance": 0.35,
+      "edge_discontinuities": 4,
+      "exif_present": false,
+      "modification_software": "Adobe Photoshop CC 2026"
+    },
+    "metadata": {
+      "sender_email": "cfo.wang@globaltrust-financ1al.com",
+      "claimed_organization": "Global Trust Financial",
+      "timestamp": "2026-09-22T22:30:00Z",
+      "is_reply": false
+    },
+    "expected_result": {
+      "risk_level": "CRITICAL",
+      "min_probability": 0.88
+    }
+  },
+  {
+    "id": "MULTI-002",
+    "label": "LEGITIMATE",
+    "title": "Standard Quarterly Earnings Call with Documentation",
+    "category": "Legitimate Multi-Modal Communication",
+    "description": "Routine quarterly earnings video call with legitimate supporting documentation and follow-up email.",
+    "text": "Dear Investor Relations Team,\n\nPlease find attached the supporting documentation for our Q3 2026 earnings call held today. As discussed during the presentation:\n\n1. Revenue increased 12% YoY to $847M\n2. Operating margin improved to 23.4%\n3. Full-year guidance raised to $3.4B-$3.5B\n\nThe earnings press release and presentation slides are attached for your review. Please ensure all materials comply with SEC Regulation FD requirements before distribution.\n\nFor questions, please contact Investor Relations at ir@techcorp.com or call (212) 555-0100.\n\nReference: ER-Q3-2026-001\n\nBest regards,\nJennifer Walsh\nVP, Investor Relations\nTechCorp Inc.",
+    "audio_features": {
+      "spectral_flatness": 0.25,
+      "pitch_variance": 0.19,
+      "formant_stability": 0.71,
+      "breath_patterns": 0.58,
+      "noise_floor": -48,
+      "snr": 20,
+      "sample_rate": 16000,
+      "mfcc_consistency": 0.76
+    },
+    "video_features": {
+      "facial_landmark_stability": 0.89,
+      "face_boundary_sharpness": 0.82,
+      "skin_texture_consistency": 0.86,
+      "lip_sync_score": 0.91,
+      "lip_movement_naturalness": 0.88,
+      "frame_consistency": 0.93,
+      "motion_smoothness": 0.90,
+      "temporal_flicker": 0.03,
+      "blink_rate": 17,
+      "blink_regularity": 0.65,
+      "micro_expression_presence": 0.72,
+      "pupil_dilation_variation": 0.35,
+      "lighting_direction_consistency": 0.91,
+      "shadow_consistency": 0.89,
+      "reflection_consistency": 0.86
+    },
+    "metadata": {
+      "sender_email": "j.walsh@techcorp.com",
+      "claimed_organization": "TechCorp",
+      "timestamp": "2026-09-30T16:00:00Z",
+      "is_reply": false
+    },
+    "expected_result": {
+      "risk_level": "CLEAN",
+      "max_probability": 0.18
+    }
+  },
+  {
+    "id": "MULTI-003",
+    "label": "DEEPFAKE",
+    "title": "Deepfake Video Conference - Board Member Impersonation",
+    "category": "Real-time Deepfake Video Call",
+    "description": "AI-generated deepfake video of a board member during an emergency board call authorizing large fund transfer.",
+    "text": "Emergency Board Resolution - Confidential\n\nFollowing today's emergency video conference with the board, the following resolution has been passed:\n\nRESOLVED: That the company shall immediately transfer $12,500,000 from the corporate reserve fund to the acquisition escrow account as detailed below for the purchase of Quantum Analytics Ltd.\n\nThis resolution was approved unanimously by the board members present via video conference. Standard 48-hour review period is waived due to the time-sensitive nature of the acquisition.\n\nEscrow Account Details:\nBank: Credit Suisse, Zurich\nAccount: CH93-0076-2011-6238-5295-7\nReference: QA-ACQ-2026\n\nExecute immediately. Board minutes to follow.",
+    "video_features": {
+      "facial_landmark_stability": 0.52,
+      "face_boundary_sharpness": 0.96,
+      "skin_texture_consistency": 0.48,
+      "lip_sync_score": 0.55,
+      "lip_movement_naturalness": 0.50,
+      "frame_consistency": 0.65,
+      "motion_smoothness": 0.60,
+      "temporal_flicker": 0.28,
+      "blink_rate": 2,
+      "blink_regularity": 0.99,
+      "micro_expression_presence": 0.05,
+      "pupil_dilation_variation": 0.01,
+      "lighting_direction_consistency": 0.55,
+      "shadow_consistency": 0.50,
+      "reflection_consistency": 0.45
+    },
+    "metadata": {
+      "sender_email": "boardsecretary@megacorp-holdings.co",
+      "claimed_organization": "MegaCorp Holdings",
+      "timestamp": "2026-10-01T23:15:00Z",
+      "is_reply": false
+    },
+    "expected_result": {
+      "risk_level": "CRITICAL",
+      "min_probability": 0.90
+    }
+  }
+]
